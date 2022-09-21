@@ -4,10 +4,8 @@ from django.contrib.auth.models import PermissionsMixin, BaseUserManager
 
 class UserAccountManager(BaseUserManager):
 
-    def create_user(self, email, first_name, last_name, phone, is_customer, password=None):
-        """
-        Creates and saves a user with a given email, first name, last name and password.
-        """
+    def create_user(self, email, first_name, last_name, phone, is_customer,image_profile, password=None):
+
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -16,15 +14,23 @@ class UserAccountManager(BaseUserManager):
                           first_name=first_name,
                           last_name=last_name,
                           phone=phone,
-                          is_customer=is_customer
+                          is_customer=is_customer,
+                          image_profile=image_profile
                           )
 
         user.set_password(password)
+        
         user.save()
+        if user.is_customer:
+            customer = Customer(user=user)
+            customer.save()
+        else:
+            supplier = Supplier(user=user)
+            supplier.save()
 
         return user
 
-    def create_superuser(self, email, first_name, last_name, password=None):
+    def create_superuser(self, email, first_name, last_name, phone, is_customer,image_profile, password=None):
         """
         Creates and saves a  superuser with a given email, first name, last name and password.
         """
@@ -32,11 +38,15 @@ class UserAccountManager(BaseUserManager):
             email,
             first_name,
             last_name,
+            phone,
+            is_customer,
+            image_profile,
             password
         )
 
         user.is_superuser = True
-        
+        user.is_staff = True
+
         user.save(using=self._db)
 
         return user
@@ -46,16 +56,17 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.EmailField(max_length=255, unique=True)
-    # is_staff = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=False)
     phone = models.CharField(max_length=10)
     is_customer = models.BooleanField(default=False)
+    image_profile = models.ImageField(null=True, blank=True)
 
     objects = UserAccountManager()
 
     # this is used for the login, you will use email to login
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'password', 'phone', 'is_customer']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'password', 'phone', 'is_customer', 'image_profile']
 
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
@@ -65,3 +76,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+
+class Supplier(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    
