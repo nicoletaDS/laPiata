@@ -4,8 +4,7 @@ from django.contrib.auth.models import PermissionsMixin, BaseUserManager
 
 class UserAccountManager(BaseUserManager):
 
-    def create_user(self, email, first_name, last_name, phone, is_customer,image_profile, password=None):
-
+    def create_user(self, email, first_name, last_name, phone, is_customer,image_profile='image_profile.png', password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
@@ -60,13 +59,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     phone = models.CharField(max_length=10)
     is_customer = models.BooleanField(default=False)
-    image_profile = models.ImageField(null=True, blank=True)
+    image_profile = models.ImageField()
 
     objects = UserAccountManager()
 
     # this is used for the login, you will use email to login
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'password', 'phone', 'is_customer', 'image_profile']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'password', 'phone', 'is_customer']
 
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
