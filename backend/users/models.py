@@ -1,3 +1,5 @@
+from distutils.command.upload import upload
+from email.policy import default
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, BaseUserManager
@@ -59,13 +61,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     phone = models.CharField(max_length=10)
     is_customer = models.BooleanField(default=False)
-    image_profile = models.ImageField()
+    image_profile = models.ImageField(upload_to='', default='image_profile.png')
 
     objects = UserAccountManager()
 
     # this is used for the login, you will use email to login
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'password', 'phone', 'is_customer']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'password', 'phone', 'is_customer', 'image_profile']
 
     def get_full_name(self):
         return self.first_name + ' ' + self.last_name
