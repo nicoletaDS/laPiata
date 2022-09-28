@@ -61,7 +61,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     phone = models.CharField(max_length=10)
     is_customer = models.BooleanField(default=False)
-    image_profile = models.ImageField(upload_to='', default='image_profile.png')
+    image_profile = models.ImageField(upload_to='users/', default='image_profile.png')
 
     objects = UserAccountManager()
 

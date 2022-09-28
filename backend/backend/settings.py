@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'corsheaders',
     'djoser',
     'orders',
@@ -186,6 +187,12 @@ DJOSER = {
         'user': 'users.serializers.UserCreateSerializer',
         'current_user': 'users.serializers.UserCreateSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
+    },
+    'EMAIL': {
+        "activation": "users.email.ActivationEmail",
+        "confirmation": "users.email.ConfirmationEmail",
+        "password_reset": "users.email.PasswordResetEmail",
+        "password_changed_confirmation": "users.email.PasswordChangedConfirmationEmail",
     }
 
 }
@@ -212,7 +219,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-MEDIA_ROOT = 'static/images'
+MEDIA_ROOT = 'static/images/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
