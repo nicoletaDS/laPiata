@@ -2,7 +2,7 @@
     position: relative;
 }
 
-.screen-wrapper{
+.sign-up-screen-wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,14 +16,14 @@
     width: 50%;
 }
 
-.title{
+.register-title{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
 }
 
-.image-wrapper{
+.sign-up-image-wrapper{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -81,7 +81,7 @@
     align-items:center;
     width: 60%;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
 
 .form_input{
@@ -122,7 +122,7 @@
     border-color: #d9eee1;
 }
   
-.save-button-wrapper {
+.save-sign-up-button-wrapper {
     width: 60%;
     margin: 0 auto;
     margin-top: 48px;
@@ -131,7 +131,9 @@
     align-items: center;
 }
 
-.save-button{    
+.save-sign-up-button{   
+    width: 120px;
+    height: 48px; 
     display: inline-block;
     background-color: transparent;
     padding: 10px 10px;
@@ -141,11 +143,11 @@
     border-radius: 5px;
 }
 
-.save-button:hover{
+.save-sign-up-button:hover{
     background-color: #d9eee1;
 }
 
-.save-button:checked{
+.save-sign-up-button:checked{
     background-color: #04aa6d;
 }
 
