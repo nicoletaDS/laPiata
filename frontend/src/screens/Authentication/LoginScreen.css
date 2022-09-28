@@ -1,0 +1,141 @@
+.app-layout{
+    position: relative;
+}
+
+.login-screen-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-screen{
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    width: 50%;
+}
+
+.login-title{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+.login-image-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.profile-img{
+    width: 120px;
+    height: 120px;
+    position: relative;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #d9eee1;
+    overflow: hidden;
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+.login-form-group{
+    padding: 24px 0 24px 0 ;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content:space-around; 
+}
+
+.form-element-wrapper{
+    display: flex;
+    align-items:center;
+    width: 60%;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.form_input{
+    border: none;
+    border-bottom: 2px solid #d9eee1;
+    width: 60%;
+}
+
+
+.save-login-button-wrapper {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.save-login-button{    
+    width: 120px;
+    height: 48px;
+    display: inline-block;
+    background-color: transparent;
+    padding: 10px 10px;
+    font-family: sans-serif, Arial;
+    font-size: 14px;
+    border: 2px solid #e7e9eb;
+    border-radius: 5px;
+}
+
+.save-login-button:hover{
+    background-color: #d9eee1;
+}
+
+.save-login-button:checked{
+    background-color: #04aa6d;
+}
+
+.new-member-button{
+    color: #282a35;
+    padding-top: 16px;
+    display:flex;
+    flex-direction: column;
+}
+
+.new-member-button:hover{
+    color: #04aa6d;
+}
+
+.reset-password-button{
+    color: #282a35;
+    padding-top: 8px;
+    display:flex;
+    flex-direction: column;
+}
+
+.reset-password-button:hover{
+    color: #04aa6d;
+}
+
+.copyright-login-page{
+    position: absolute;
+    margin-top: auto;
+    background-color: #e7e9eb;
+    bottom: 0px;
+    display: flex;
+    justify-content:center;
+    left: 0;
+    right: 0;
+}
+
+
+.error-login-message{
+    width: 60%;
+    color: #04aa6d;
+}
