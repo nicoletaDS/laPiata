@@ -37,10 +37,6 @@
     width: 120px;
     height: 120px;
     position: relative;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #d9eee1;
-    overflow: hidden;
 }
 
 #photo{
@@ -87,7 +83,6 @@
     display: inline-block;
     background-color: transparent;
     padding: 10px 10px;
-    font-family: sans-serif, Arial;
     font-size: 14px;
     border: 2px solid #e7e9eb;
     border-radius: 5px;

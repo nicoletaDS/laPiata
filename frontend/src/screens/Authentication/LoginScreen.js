@@ -1,4 +1,4 @@
-import React, { useDebugValue } from 'react'
+import React from 'react'
 import './LoginScreen.css'
 import Layout from '../../components/Layout/Layout'
 import {useDispatch, useSelector} from 'react-redux'
@@ -19,7 +19,7 @@ function LoginScreen() {
   let navigate = useNavigate();
 
   useEffect(()=>{
-    if(userInfo){
+    if(userInfo && userInfo.id){
       let path = '/'; 
       navigate(path);
     }

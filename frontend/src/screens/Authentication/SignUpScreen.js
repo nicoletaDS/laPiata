@@ -54,7 +54,7 @@ function SignUpScreen() {
 
     useEffect(() => {
         // if userInfo exist redirect the user 
-        if(userInfo){
+        if(userInfo && userInfo.id){
   
             let path = '/'; 
             navigate(path);
@@ -110,7 +110,7 @@ function SignUpScreen() {
                                     id='file'
                                     accept='/image/*' 
                                     onChange={(e)=>handleChange(e)}/>
-                            <label for='file' id='uploadBtn'>Alege poza</label>
+                            <label for='file' id='uploadBtn'> + </label>
                         </div>
                     </div>
                     <div className='register-form-group'>
