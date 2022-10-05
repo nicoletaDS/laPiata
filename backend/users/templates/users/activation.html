@@ -9,13 +9,12 @@
 
 {% trans "Acceseaza butonul de mai jos pentru activare:" %}
 <p>
-    <a href="{{ protocol }}://localhost:3000/{{ url|safe }}">
+    <a href="{{ protocol }}://localhost:8000/api/users/{{ url|safe }}">
         <button style="border: 10px; background-color: #218548; padding: 14px; border-radius: 8px; color:white  ">
             Activare cont
         </button>
     </a>
 </p>
-<!-- {{ protocol }}://localhost:3000/{{ url|safe }} -->
 
 {% trans "Va multumim!" %}
 
@@ -27,7 +26,7 @@
 
 <p>{% trans "Acceseaza butonul de mai jos pentru activare:" %}</p>
 <p>
-    <a href="{{ protocol }}://localhost:3000/{{ url|safe }}">
+    <a href="{{ protocol }}://localhost:8000/api/users/{{ url|safe }}">
         <button style="border: 10px; background-color: #218548; padding: 14px; border-radius: 8px; color:white  ">
             Activare cont
         </button>

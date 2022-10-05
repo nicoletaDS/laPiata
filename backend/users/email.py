@@ -8,3 +8,6 @@ class ConfirmationEmail(email.ConfirmationEmail):
 
 class PasswordResetEmail(email.PasswordResetEmail):
     template_name = "users/password_reset.html"
+
+class PasswordChangedConfirmationEmail(email.PasswordChangedConfirmationEmail):
+    template_name = "users/password_changed_confirmation.html"
