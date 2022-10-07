@@ -6,7 +6,7 @@ import {
 } from '../constants/userConstants'
 import axios from 'axios'
 
-require('dotenv').config();
+//require('dotenv').config();
 
 export const register_func = (formRegisterData) => async (dispatch) => {
 
@@ -20,7 +20,8 @@ export const register_func = (formRegisterData) => async (dispatch) => {
                 'Content-Type': 'multipart/form-data',
             }
         }
-        const {data} = await axios.post(`${process.env.REACT_APP_BACKEND}/api/users/`, formRegisterData, config )
+        //const {data} = await axios.post(`${process.env.REACT_APP_BACKEND}/api/users/`, formRegisterData, config )
+        const {data} = await axios.post('/api/users/', formRegisterData, config )
 
         dispatch({
             type: USER_REGISTER_SUCCESS,

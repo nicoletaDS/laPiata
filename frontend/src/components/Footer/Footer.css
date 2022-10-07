@@ -1,0 +1,12 @@
+.footer{
+    background:	#d9eee1;
+    max-width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.footer-body{
+    max-width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+}

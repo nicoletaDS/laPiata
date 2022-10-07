@@ -1,0 +1,24 @@
+
+.dropdown-row{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.dropdown-row .text-col{
+    text-align: left;
+    font-weight: bold;
+    width: 90%;
+}
+
+.dropdown-row .text-col.read{
+    text-align: left;
+    font-weight: 300;
+    width: 90%;
+}
+
+.dropdown-row .date-col{
+    text-align: right;
+    font-weight: 200;
+    width: 10%;
+}
