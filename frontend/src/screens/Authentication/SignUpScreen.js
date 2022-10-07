@@ -54,7 +54,7 @@ function SignUpScreen() {
 
     useEffect(() => {
         // if userInfo exist redirect the user 
-        if(userInfo){
+        if(userInfo && userInfo.id){
   
             let path = '/'; 
             navigate(path);
@@ -93,98 +93,98 @@ function SignUpScreen() {
     }
       
     if (accountCreated) {
-          let path = '/login'; 
+          let path = '/conectare'; 
           navigate(path);
     }
 
     return (
         <Layout>
-        <div className="screen-wrapper">
+        <div className="sign-up-screen-wrapper">
             <div className='sign-up-screen'>
-                <h1 className='title'>Inregistrare</h1>
+                <h1 className='register-title'>Inregistrare</h1>
                 <form onSubmit={submitHandler}>
-                    <div className='image-wrapper'>
+                    <div className='sign-up-image-wrapper'>
                         <div className='profile-img'>
                             <img src={imgSrc || '/images/image_profile.png'} alt="Imagine Profil" id='photo'/>
                             <input  type='file'
                                     id='file'
                                     accept='/image/*' 
                                     onChange={(e)=>handleChange(e)}/>
-                            <label for='file' id='uploadBtn'>Alege poza</label>
+                            <label for='file' id='uploadBtn'> + </label>
                         </div>
                     </div>
-                        <div className='register-form-group'>
-                            <div className='form-element-wrapper'>
-                                <label className='form_label'>
-                                    Prenume:
-                                </label>
-                                <input required 
-                                    type='text' 
-                                    className='form_input' 
-                                    placeholder='Prenume'
-                                    value={first_name}
-                                    onChange={(e)=>setFirstName(e.target.value)}/>
-                            </div>
-                            <div className='form-element-wrapper'>
-                                <label className='form_label'>
-                                    Nume: 
-                                </label>
-                                <input required 
-                                    type='text' 
-                                    className='form_input' 
-                                    placeholder='Nume'
-                                    value={last_name}
-                                    onChange={(e)=>setLastName(e.target.value)}/>
-                            </div>
-                            
-                            <div className='form-element-wrapper'>
-                                <label className='form_label'>
-                                    E-mail: 
-                                </label>
-                                <input required
-                                    type='email' 
-                                    className='form_input' 
-                                    placeholder='E-mail'
-                                    value={email}
-                                    onChange={(e)=>setEmail(e.target.value)}/>
-                            </div>
-
-                            <div className='form-element-wrapper'>
-                                <label className='form_label'>
-                                    Telefon: 
-                                </label>
-                                <input required
-                                    type='text' 
-                                    className='form_input' 
-                                    placeholder='Telefon'
-                                    value={phone}
-                                    onChange={(e)=>setPhone(e.target.value)}/>
-                            </div>
-
-                            <div className='form-element-wrapper'>
-                                <label className='form_label'>
-                                    Parola: 
-                                </label>
-                                <input required
-                                    type='password' 
-                                    className='form_input' 
-                                    placeholder='Parola'
-                                    value={password}
-                                    onChange={(e)=>setPassword(e.target.value)}/>
-                            </div>
-
-                            <div className='form-element-wrapper'>
-                                <label className='form_label'>
-                                    Repeta Parola: 
-                                </label>
-                                <input required
-                                    type='password' 
-                                    className='form_input' 
-                                    placeholder='Repeta Parola'
-                                    value={re_password}
-                                    onChange={(e)=>setRePassword(e.target.value)}/>
-                            </div>
+                    <div className='register-form-group'>
+                        <div className='form-element-wrapper'>
+                            <label className='form_label'>
+                                Prenume:
+                            </label>
+                            <input required
+                                type='text'
+                                className='form_input'
+                                placeholder='Prenume'
+                                value={first_name}
+                                onChange={(e)=>setFirstName(e.target.value)}/>
                         </div>
+                        <div className='form-element-wrapper'>
+                            <label className='form_label'>
+                                Nume:
+                            </label>
+                            <input required
+                                type='text'
+                                className='form_input'
+                                placeholder='Nume'
+                                value={last_name}
+                                onChange={(e)=>setLastName(e.target.value)}/>
+                        </div>
+
+                        <div className='form-element-wrapper'>
+                            <label className='form_label'>
+                                E-mail: 
+                            </label>
+                            <input required
+                                type='email' 
+                                className='form_input' 
+                                placeholder='E-mail'
+                                value={email}
+                                onChange={(e)=>setEmail(e.target.value)}/>
+                        </div>
+
+                        <div className='form-element-wrapper'>
+                            <label className='form_label'>
+                                Telefon: 
+                            </label>
+                            <input required
+                                type='text' 
+                                className='form_input' 
+                                placeholder='Telefon'
+                                value={phone}
+                                onChange={(e)=>setPhone(e.target.value)}/>
+                        </div>
+
+                        <div className='form-element-wrapper'>
+                            <label className='form_label'>
+                                Parola: 
+                            </label>
+                            <input required
+                                type='password' 
+                                className='form_input' 
+                                placeholder='Parola'
+                                value={password}
+                                onChange={(e)=>setPassword(e.target.value)}/>
+                        </div>
+
+                        <div className='form-element-wrapper'>
+                            <label className='form_label'>
+                                Repeta Parola: 
+                            </label>
+                            <input required
+                                type='password' 
+                                className='form_input' 
+                                placeholder='Repeta Parola'
+                                value={re_password}
+                                onChange={(e)=>setRePassword(e.target.value)}/>
+                        </div>
+                    </div>
                     <div className='radio-toolbar'>
                         <input type="radio" id="buyer" name="userType" value="true" onChange={(e)=>setIsCustomer(e.target.value)}/>
                         <label for="buyer" style={{marginRight:"24px"}}>Vreau sa cumpar</label>
@@ -192,9 +192,9 @@ function SignUpScreen() {
                         <input type="radio" id="seller" name="userType" value="false" onChange={(e)=>setIsCustomer(e.target.value)}/>
                         <label for="seller">Vreau sa vand</label>
                     </div>
-                    <div className="save-button-wrapper">
-                        <button type="submit" className='save-button' >Salveaza</button>
-                        <a href="/login" className='already-member'>Sunt deja membru</a>
+                    <div className="save-sign-up-button-wrapper">
+                        <button type="submit" className='save-sign-up-button' >Salveaza</button>
+                        <a href="/conectare" className='already-member'>Sunt deja membru</a>
                     </div>
                 </form>
             </div>

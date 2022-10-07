@@ -2,35 +2,35 @@
     position: relative;
 }
 
-.sign-up-screen-wrapper{
+.login-screen-wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.sign-up-screen{
+.login-screen{
     background-color: white;
     border-radius: 20px;
     padding: 20px;
     width: 50%;
 }
 
-.register-title{
+.login-title{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
 }
 
-.sign-up-image-wrapper{
+.login-image-wrapper{
     display: flex;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: center;
-    
+    margin-bottom: 40px;
 }
 
 .profile-img{
@@ -44,28 +44,7 @@
     width: 100%;
 }
 
-#file{
-    display: none;
-}
-
-#uploadBtn{
-    border-radius: 50%;
-    height: 20px;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 18px;
-    margin-left: 34px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: justify;
-    color: green;
-    line-height: 19px;
-    font-size: 32px;
-    cursor: pointer;
-    border: 2px solid;
-}
-
-.register-form-group{
+.login-form-group{
     padding: 24px 0 24px 0 ;
     display: flex;
     flex-direction: column;
@@ -87,50 +66,20 @@
     width: 60%;
 }
 
-.radio-toolbar {
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start;
-}
-  
-.radio-toolbar input[type="radio"] {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-}
 
-.radio-toolbar label {
-    display: inline-block;
-    background-color: transparent;
-    padding: 10px 10px;
-    font-family: sans-serif, Arial;
-    font-size: 14px;
-    border: 2px solid #e7e9eb;
-    border-radius: 5px;
-}
-
-.radio-toolbar label:hover {
-    background-color: #d9eee1;
-}
-
-.radio-toolbar input[type="radio"]:checked + label {
-    background-color: #04aa6d;
-    border-color: #d9eee1;
-}
-  
-.save-sign-up-button-wrapper {
+.save-login-button-wrapper {
     width: 60%;
     margin: 0 auto;
     margin-top: 48px;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.save-sign-up-button{   
+.save-login-button{    
     width: 120px;
-    height: 48px; 
+    height: 48px;
     display: inline-block;
     background-color: transparent;
     padding: 10px 10px;
@@ -139,24 +88,37 @@
     border-radius: 5px;
 }
 
-.save-sign-up-button:hover{
+.save-login-button:hover{
     background-color: #d9eee1;
 }
 
-.save-sign-up-button:checked{
+.save-login-button:checked{
     background-color: #04aa6d;
 }
 
-.already-member{
+.new-member-button{
     color: #282a35;
-    padding-left: 30px;
+    padding-top: 16px;
+    display:flex;
+    flex-direction: column;
 }
 
-.already-member:hover{
+.new-member-button:hover{
     color: #04aa6d;
 }
 
-.copyright-register-page{
+.reset-password-button{
+    color: #282a35;
+    padding-top: 8px;
+    display:flex;
+    flex-direction: column;
+}
+
+.reset-password-button:hover{
+    color: #04aa6d;
+}
+
+.copyright-login-page{
     position: absolute;
     margin-top: auto;
     background-color: #e7e9eb;
@@ -165,4 +127,10 @@
     justify-content:center;
     left: 0;
     right: 0;
+}
+
+
+.error-login-message{
+    width: 60%;
+    color: #04aa6d;
 }
