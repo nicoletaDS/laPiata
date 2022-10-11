@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { register_func } from '../../actions/userActions'
-
+import Avatar from '../../components/Avatar/Avatar'
 
 function SignUpScreen() {
     const [first_name, setFirstName] = useState('')
@@ -104,14 +104,7 @@ function SignUpScreen() {
                 <h1 className='register-title'>Inregistrare</h1>
                 <form onSubmit={submitHandler}>
                     <div className='sign-up-image-wrapper'>
-                        <div className='profile-img'>
-                            <img src={imgSrc || '/images/image_profile.png'} alt="Imagine Profil" id='photo'/>
-                            <input  type='file'
-                                    id='file'
-                                    accept='/image/*' 
-                                    onChange={(e)=>handleChange(e)}/>
-                            <label for='file' id='uploadBtn'> + </label>
-                        </div>
+                        <Avatar handleChange={handleChange} imgSrc={imgSrc}/>
                     </div>
                     <div className='register-form-group'>
                         <div className='form-element-wrapper'>
