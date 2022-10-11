@@ -8,6 +8,7 @@ import NewPasswordConfirmationScreen from './screens/Authentication/NewPasswordC
 function App(){
   return (
     <Router>
+      <Header />
         <Routes>
           <Route path='/inregistrare' element={<SignUpScreen/>}></Route>
           <Route path='/conectare' element={<LoginScreen/>}></Route>
