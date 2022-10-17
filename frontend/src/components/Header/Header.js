@@ -15,7 +15,7 @@ const userInfo = false;
 
   return (
     <header className='header'>
-      <SupplierHeader />
+      <CustomerHeader />
       {/* {!userInfo ? <DefaultHeader /> :
         userInfo.is_customer ? <CustomerHeader /> : <SupplierHeader />} */}
     </header>

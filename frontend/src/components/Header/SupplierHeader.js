@@ -3,25 +3,16 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Header.css'
+import Navitem from './components/Navitem'
 import Logo from './components/Logo'
 import SearchBar from './components/SearchBar'
 import DropdownUser from './components/DropdownUser'
 import DropdownMessage from './components/DropdownMessage'
-import DropdownFavorits from './components/DropdownFavorits'
 
 
 function SupplierHeader() {
-  const [dropdownUser, setDropdownUser] = useState(false)
-  const [dropdownMessage, setDropdownMessage] = useState(false)
-  const [dropdownNotification, setDropdownNotification] = useState(false)
-  const [dropdownFavorits, setDropdownFavorits] = useState(false);
-  const [dropdownCart, setDropdownCart] = useState(false);
-
-  const onMouseEnter = (func) => {
-      window.innerWidth < 960 ? func(false) : func(true)
-  }
-
-  const onMouseLeave = (func) => func(false)
+  const [barsMenu, setBarsMenu] = useState(false);
+  const handleClick = () => setBarsMenu(!barsMenu)
 
   const DropdownUserItems = [
     {
@@ -82,84 +73,46 @@ function SupplierHeader() {
       cName: 'dropdown-link',
       isRead: true
     }
-  ];
-
-  const DropdownFavoritsItems = [
-    {
-      img: '/images/image_profile.png',
-      title: 'Struguri negri fara samburi',
-      price: '7 lei/kg',
-      path: '/',
-      cName: 'dropdown-link'
-    },
-    {
-      img: '...',
-      title: 'Rosii dulci de gradina...',
-      price: '5 lei/kg',
-      path: '/',
-      cName: 'dropdown-link'
-    }
-  ];
-
-  
+  ]; 
 
   return (
-    <div className='header-body'>
+    <div className={barsMenu ? 'header-body responsive' : 'header-body'}>
       <Logo />
-      <Link to='/products'>Produsele mele</Link>
-      <Link to='/orders'>Comenzi</Link>
+
+      <Link to='/produsele_mele'>Produsele mele</Link>
+
+      <Link to='/comenzi'>Comenzi</Link>
+
       <SearchBar />
 
-      <div 
-        className='nav-item'
-        onMouseEnter={() => onMouseEnter(setDropdownFavorits)}
-        onMouseLeave={() => onMouseLeave(setDropdownFavorits)}
-      >
-        <Link to='/favorits'>Favorite</Link>
-        {dropdownFavorits && <DropdownFavorits menuItems={DropdownFavoritsItems}/>}
-      </div>
-      
-      <div 
-        className='nav-item'
-        onMouseEnter={() => onMouseEnter(setDropdownCart)}
-        onMouseLeave={() => onMouseLeave(setDropdownCart)}
-      >
-        <Link to='/Cart'>Coșul meu</Link>
-        {dropdownCart && <DropdownFavorits menuItems={DropdownFavoritsItems}/>}
-      </div>
-      
-      <div className='icons'>
-        <div 
-          className='icon'
-          onMouseEnter={() => onMouseEnter(setDropdownNotification)}
-          onMouseLeave={() => onMouseLeave(setDropdownNotification)}
-        >
-          <Link to='/notifications'><i class="fa-solid fa-bell"></i></Link>
-          <div className='counter'>2</div>
-          {dropdownNotification && <DropdownMessage menuItems={DropdownNotificationItems}/>}
-        </div>
+      <Navitem
+        className='icon'
+        itemLink='/notificari'
+        itemName={barsMenu ? 'Notificari' : <i class="fa-solid fa-bell" />}
+        counter={barsMenu ? null : <div className='counter'>2</div>}
+        dropdown={<DropdownMessage menuItems={DropdownNotificationItems} />}
+      />
 
-        <div 
-          className='icon'
-          onMouseEnter={() => onMouseEnter(setDropdownMessage)}
-          onMouseLeave={() => onMouseLeave(setDropdownMessage)}
-        >
-          <Link to='/messages'><i class="fa-solid fa-envelope"></i></Link>
-          <div className='counter'>12</div>
-          {dropdownMessage && <DropdownMessage menuItems={DropdownMessageItems}/>}
-        </div>
+      <Navitem
+        className='icon'
+        itemLink='/mesaje'
+        itemName={barsMenu ? 'Mesaje' : <i class="fa-solid fa-envelope" />}
+        counter={barsMenu ? null : <div className='counter'>2</div>}
+        dropdown={<DropdownMessage menuItems={DropdownMessageItems} />}
+      />
 
-        <div 
-          className='icon'
-          onMouseEnter={() => onMouseEnter(setDropdownUser)}
-          onMouseLeave={() => onMouseLeave(setDropdownUser)}
-        >
-          <Link to='/user'><i class="fa-solid fa-user"></i></Link>
-          {dropdownUser && <DropdownUser menuItems={DropdownUserItems}/>}
-        </div>
-      </div>
+      <Navitem 
+        itemLink='/profil'
+        className='icon' 
+        itemName={barsMenu ? 'Contul meu' : <i className="fa-solid fa-user" />}
+        dropdown={<DropdownUser menuItems={DropdownUserItems}/>}
+      />
+
+      <button type='button' className="bars-icon" onClick={handleClick}>
+        {barsMenu ? <i className="fa fa-close" /> : <i className="fa fa-bars" />}
+      </button>
     </div>
   )
 }
 
-export default SupplierHeader;
+export default SupplierHeader

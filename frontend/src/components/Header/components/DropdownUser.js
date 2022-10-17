@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Dropdown.css';
 
 
-const Dropdown = ({ menuItems }) => {
+const DropdownUser = ({ menuItems }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -33,4 +33,4 @@ const Dropdown = ({ menuItems }) => {
   );
 }
 
-export default Dropdown;
+export default DropdownUser;

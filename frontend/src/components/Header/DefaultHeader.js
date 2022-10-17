@@ -1,24 +1,17 @@
-import {useSelector} from 'react-redux'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Header.css'
+import Navitem from './components/Navitem'
 import Logo from './components/Logo'
 import SearchBar from './components/SearchBar'
 import DropdownUser from './components/DropdownUser'
-import DropdownFavorits from './components/DropdownFavorits'
+import DropdownMyProducts from './components/DropdownMyProducts'
 
 
 function DefaultHeader() {
-  const [dropdownUser, setDropdownUser] = useState(false);
-  const [dropdownFavorits, setDropdownFavorits] = useState(false);
-  const [dropdownCart, setDropdownCart] = useState(false);
-
-  const onMouseEnter = (func) => {
-    window.innerWidth < 960 ? func(false) : func(true)
-  }
-
-  const onMouseLeave = (func) => func(false)
+  const [barsMenu, setBarsMenu] = useState(false);
+  const handleClick = () => setBarsMenu(!barsMenu)
 
   const DropdownUserItems = [
     {
@@ -35,14 +28,14 @@ function DefaultHeader() {
 
   const DropdownFavoritsItems = [
     {
-      img: '...',
+      img: '/images/image_profile.png',
       tile: 'Struguri negri fara samburi',
       price: '7 lei/kg',
       path: '/',
       cName: 'dropdown-link'
     },
     {
-      img: '...',
+      img: '/images/image_profile.png',
       title: 'Rosii dulci de gradina...',
       price: '5 lei/kg',
       path: '/',
@@ -51,41 +44,40 @@ function DefaultHeader() {
   ];
   
     return (
-      <div className='header-body'>
+      <div className={barsMenu ? 'header-body responsive' : 'header-body'}>
         <Logo />
-        <div className='navigation'>
-          <Link to='/products'>Produse</Link>
-          <Link to='/suppliers'>Vânzători</Link>
-          <SearchBar />
-          <div 
-            className='nav-item'
-            onMouseEnter={() => onMouseEnter(setDropdownFavorits)}
-            onMouseLeave={() => onMouseLeave(setDropdownFavorits)}
-          >
-            <Link to='/favorits'>Favorite</Link>
-            {dropdownFavorits && <DropdownFavorits menuItems={DropdownFavoritsItems}/>}
-          </div>
-          
-          <div 
-            className='nav-item'
-            onMouseEnter={() => onMouseEnter(setDropdownCart)}
-            onMouseLeave={() => onMouseLeave(setDropdownCart)}
-          >
-            <Link to='/Cart'>Coșul meu</Link>
-            {dropdownCart && <DropdownFavorits menuItems={DropdownFavoritsItems}/>}
-          </div>
-        </div>
-        
-        <div className='icons'>
-          <div 
-            className='icon' 
-            onMouseEnter={() => onMouseEnter(setDropdownUser)}
-            onMouseLeave={() => onMouseLeave(setDropdownUser)}
-          >
-            <Link to=''><i className="fa-solid fa-user"></i></Link>
-            {dropdownUser && <DropdownUser menuItems={DropdownUserItems}/>}
-          </div>
-        </div>
+
+        <Link to='/produse'>Produse</Link>
+
+        <Link to='/vanzatori'>Vânzători</Link>
+
+        <SearchBar />
+
+        <Navitem 
+          className='nav-item'
+          itemLink='/favorite'
+          itemName={'Favorite'}
+          dropdown={<DropdownMyProducts menuItems={DropdownFavoritsItems} />}
+        />
+  
+        <Navitem 
+          className='nav-item'
+          itemLink='/cosulmeu'
+          itemName={'Coșul meu'}
+          dropdown={<DropdownMyProducts menuItems={DropdownFavoritsItems}/>}
+        />
+
+        <Navitem 
+          itemLink='/conectare'
+          className='icon' 
+          itemName={barsMenu ? 'Contul meu' : <i className="fa-solid fa-user" />}
+          dropdown={<DropdownUser menuItems={DropdownUserItems}/>}
+        />
+
+        <button type='button' className="bars-icon" onClick={handleClick}>
+          {barsMenu ? <i className="fa fa-close" /> : <i className="fa fa-bars" />}
+        </button>
+
       </div>
     )
 }

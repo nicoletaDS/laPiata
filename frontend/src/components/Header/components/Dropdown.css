@@ -1,10 +1,13 @@
+.nav-item{
+  position: relative;
+}
+
 .dropdown-menu {
   background: #ffffff;
-  width: 160px;
-  /* height: 100px; */
+  width: 300px;
+  left: -220px;
   position: absolute;
-  top: 25px;
-  left: -130px;
+  top: 15px;
   list-style: none;
   z-index: 10;
   overflow: overlay;
@@ -14,7 +17,7 @@
   border: 0.2px solid #e7e9eb;
   border-radius: 5px;
 }
-  
+
 .dropdown-menu li {
   cursor: pointer;
   display: flex;
@@ -58,7 +61,7 @@
   margin-top: 0px;
 }
 
-.show-all{
+.nav-item .show-all{
   font-size: 14px;
   padding: 10px 0px;
   margin-top: 0px;

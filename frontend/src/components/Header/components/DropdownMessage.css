@@ -1,3 +1,7 @@
+.icon .dropdown-menu{
+    width: 120px;
+    left: -90px;
+}
 
 .dropdown-row{
     display: flex;

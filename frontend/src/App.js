@@ -1,5 +1,7 @@
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 import './index.css'
+import Header from './components/Header/Header'
 import SignUpScreen from './screens/Authentication/SignUpScreen';
 import LoginScreen from './screens/Authentication/LoginScreen';
 import ResetPasswordScreen from './screens/Authentication/ResetPasswordScreen';
