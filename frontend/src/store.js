@@ -4,10 +4,12 @@ import thunk from 'redux-thunk';
 
 import { userRegisterReducer } from './reducers/userReducers';
 import { userLoginReducer } from './reducers/userReducers';
+import { userDetailsReducer} from './reducers/userReducers';
 
 const reducer = combineReducers({
     userRegister: userRegisterReducer,
     userLogin: userLoginReducer,
+    userDetails: userDetailsReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : []

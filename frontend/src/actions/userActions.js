@@ -16,6 +16,11 @@ import {
     USER_PASSWORD_RESET_CONFIRM_SUCCESS,
     USER_PASSWORD_RESET_CONFIRM_FAIL,
 
+    USER_DETAILS_REQUEST,
+    USER_DETAILS_SUCCESS,
+    USER_DETAILS_FAIL,
+    USER_DETAILS_RESET,
+
 } from '../constants/userConstants'
 import axios from 'axios'
 
@@ -159,3 +164,38 @@ export const reset_password_confirm_func = (uid, token, new_password, re_new_pas
 
     }
 };
+
+
+export const getUserDetails = (id) => async (dispatch, getState) => {
+    try{
+        dispatch({
+            type: USER_DETAILS_REQUEST
+        })
+
+        const {
+            userLogin: { userInfo},
+        } = getState()
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `JWT ${userInfo.access}`
+            }
+        }
+
+        const {data} = await axios.get('/api/profil', config)
+
+        dispatch({
+            type:USER_DETAILS_SUCCESS,
+            payload: data
+        })
+    }
+    catch(error){
+        dispatch({
+            type: USER_DETAILS_FAIL,
+            payload: error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+        })
+    }
+}
