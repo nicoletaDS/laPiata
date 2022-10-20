@@ -29,7 +29,7 @@ function DefaultHeader() {
   const DropdownFavoritsItems = [
     {
       img: '/images/image_profile.png',
-      tile: 'Struguri negri fara samburi',
+      title: 'Struguri negri fara samburi',
       price: '7 lei/kg',
       path: '/',
       cName: 'dropdown-link'

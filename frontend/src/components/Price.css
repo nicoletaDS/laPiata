@@ -1,0 +1,11 @@
+.price{
+    position: relative;
+    font-weight: 600;
+}
+
+.price span{
+    position: absolute;
+    top: -2px;
+    font-size: 12px;
+    font-weight: 600;
+}

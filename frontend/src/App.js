@@ -6,12 +6,15 @@ import SignUpScreen from './screens/Authentication/SignUpScreen';
 import LoginScreen from './screens/Authentication/LoginScreen';
 import ResetPasswordScreen from './screens/Authentication/ResetPasswordScreen';
 import NewPasswordConfirmationScreen from './screens/Authentication/NewPasswordConfirmationScreen';
+import HomePage from './screens/HomePage/HomePage';
+
 
 function App(){
   return (
     <Router>
       <Header />
         <Routes>
+          <Route exact path='/' element={<HomePage/>}></Route>
           <Route path='/inregistrare' element={<SignUpScreen/>}></Route>
           <Route path='/conectare' element={<LoginScreen/>}></Route>
           <Route path='/resetare-parola' element={<ResetPasswordScreen/>}></Route>

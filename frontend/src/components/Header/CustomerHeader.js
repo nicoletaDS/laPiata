@@ -119,7 +119,7 @@ function DefaultHeader() {
       <Navitem
         className='icon'
         itemLink='/notificari'
-        itemName={barsMenu ? 'Notificari' : <i class="fa-solid fa-bell" />}
+        itemName={barsMenu ? 'Notificari' : <i className="fa-solid fa-bell" />}
         counter={barsMenu ? null : <div className='counter'>2</div>}
         dropdown={<DropdownMessage menuItems={DropdownNotificationItems} />}
       />
@@ -127,7 +127,7 @@ function DefaultHeader() {
       <Navitem
         className='icon'
         itemLink='/mesaje'
-        itemName={barsMenu ? 'Mesaje' : <i class="fa-solid fa-envelope" />}
+        itemName={barsMenu ? 'Mesaje' : <i className="fa-solid fa-envelope" />}
         counter={barsMenu ? null : <div className='counter'>2</div>}
         dropdown={<DropdownMessage menuItems={DropdownMessageItems} />}
       />
