@@ -1,5 +1,5 @@
 import React from 'react'
-import './LoginScreen.css'
+import './Authentication.css'
 import Layout from '../../components/Layout/Layout'
 import {useDispatch, useSelector} from 'react-redux'
 import {useState, useEffect} from 'react'
@@ -32,17 +32,16 @@ function LoginScreen() {
 
 
   return (
-    <Layout>
-      <div className="login-screen-wrapper">
-        <div className='login-screen'>
-          <h1 className='login-title'>Conectare</h1>
+      <div className="screen-wrapper">
+        <div className='authentication-screen'>
+          <h1 className='title'>Conectare</h1>
           <form onSubmit={submitHandler}>
-            <div className='login-image-wrapper'>
+            <div className='image-wrapper'>
               <div className='profile-img'>
                   <img src={'/images/image_profile.png'} alt="Imagine Profil" id='photo'/>
               </div>
             </div>
-            <div className='login-form-group'>
+            <div className='form-group'>
               <div className='form-element-wrapper'>
                 <label className='form_label'>
                   E-mail: 
@@ -68,17 +67,13 @@ function LoginScreen() {
             </div>
             {error && <h6 className='error-login-message'>{error}</h6>}
             <div className="save-login-button-wrapper">
-              <button type="submit" className='save-login-button' >Salveaza</button>
+              <button type="submit" className='save-authentication-button' >Salveaza</button>
               <a href="/inregistrare" className='new-member-button'>Creaza cont nou</a>
               <a href="/resetare-parola" className='reset-password-button'>Ai uitat parola?</a>
             </div>
           </form>
         </div>
       </div>
-      <div className='copyright-login-page'>
-                <p>Copyright &copy; La Piata</p>
-      </div>
-    </Layout>
   )
 }
 

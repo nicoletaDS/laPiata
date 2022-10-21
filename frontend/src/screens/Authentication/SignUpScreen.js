@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
-import './SignUpScreen.css'
+import './Authentication.css'
 import {useState, useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { useNavigate } from "react-router-dom";
@@ -98,15 +98,14 @@ function SignUpScreen() {
     }
 
     return (
-        <Layout>
-        <div className="sign-up-screen-wrapper">
-            <div className='sign-up-screen'>
-                <h1 className='register-title'>Inregistrare</h1>
+        <div className="screen-wrapper">
+            <div className='authentication-screen'>
+                <h1 className='title'>Inregistrare</h1>
                 <form onSubmit={submitHandler}>
-                    <div className='sign-up-image-wrapper'>
+                    <div className='image-wrapper'>
                         <Avatar handleChange={handleChange} imgSrc={imgSrc}/>
                     </div>
-                    <div className='register-form-group'>
+                    <div className='form-group'>
                         <div className='form-element-wrapper'>
                             <label className='form_label'>
                                 Prenume:
@@ -180,23 +179,19 @@ function SignUpScreen() {
                     </div>
                     <div className='radio-toolbar'>
                         <input type="radio" id="buyer" name="userType" value="true" onChange={(e)=>setIsCustomer(e.target.value)}/>
-                        <label for="buyer" style={{marginRight:"24px"}}>Vreau sa cumpar</label>
+                        <label for="buyer">Vreau sa cumpar</label>
 
                         <input type="radio" id="seller" name="userType" value="false" onChange={(e)=>setIsCustomer(e.target.value)}/>
                         <label for="seller">Vreau sa vand</label>
                     </div>
-                    <div className="save-sign-up-button-wrapper">
-                        <button type="submit" className='save-sign-up-button' >Salveaza</button>
+                    <div className="authentication-button-wrapper">
+                        <button type="submit" className='save-authentication-button' >Salveaza</button>
                         <a href="/conectare" className='already-member'>Sunt deja membru</a>
                     </div>
                 </form>
             </div>
-            
         </div>
-        <div className='copyright-register-page'>
-                <p>Copyright &copy; La Piata</p>
-        </div>
-        </Layout>
+
     )
 }
 

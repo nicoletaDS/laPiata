@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import { reset_password_func } from '../../actions/userActions'
 import Layout from '../../components/Layout/Layout'
-import './ResetPasswordScreen.css'
+import './Authentication.css'
 function ResetPasswordScreen() {
 
     const [email, setEmail] = useState('')
@@ -14,42 +14,38 @@ function ResetPasswordScreen() {
     }
 
     return (
-        <Layout>
-            <div className='reset-password-screen-wrapper'>
-                <div className='reset-password-screen'>
-                    <h1 className='reset-title'>Resetare Parola</h1>
-                    <form onSubmit={submitHandler}>
-                        <div className='reset-image-wrapper'>
-                            <div className='profile-img'>
-                                <img src={'/images/image_profile.png'} alt="Imagine Profil" id='photo'/>
-                            </div>
+        <div className='screen-wrapper'>
+            <div className='authentication-screen'>
+                <h1 className='title'>Resetare Parola</h1>
+                <form onSubmit={submitHandler}>
+                    <div className='image-wrapper'>
+                        <div className='profile-img'>
+                            <img src={'/images/image_profile.png'} alt="Imagine Profil" id='photo'/>
                         </div>
-                        <div className='description-page'>
-                            <p className='description-body'> 
-                                Pentru a reseta parola, introduceti email-ul mai jos.<br/> In cazul in care exista un cont cu acest email, veti primi un link pentru resetarea parolei!
-                            </p>
+                    </div>
+                    <div className='description-page'>
+                        <p className='description-body'> 
+                            Pentru a reseta parola, introduceti email-ul mai jos.<br/> In cazul in care exista un cont cu acest email, veti primi un link pentru resetarea parolei!
+                        </p>
+                    </div>
+                    <div className='form-group'>
+                        <div className='form-element-wrapper'>
+                            <label className='form_label'>
+                                E-mail: 
+                            </label>
+                            <input required
+                                type='email' 
+                                className='form_input' 
+                                placeholder='E-mail'
+                                value={email}
+                                onChange={(e)=>setEmail(e.target.value)}/>
                         </div>
-                        <div className='reset-form-group'>
-                            <div className='reset-form-element'>
-                                <label className='form_label'>
-                                    E-mail: 
-                                </label>
-                                <input required
-                                    type='email' 
-                                    className='form_input' 
-                                    placeholder='E-mail'
-                                    value={email}
-                                    onChange={(e)=>setEmail(e.target.value)}/>
-                            </div>
-                        </div>
-                        <button type="submit" className='save-button' >Salveaza</button>
-                    </form>
-                </div>
+                    </div>
+                    <button type="submit" className='save-button' >Salveaza</button>
+                </form>
             </div>
-            <div className='copyright-reset-password-page'>
-                <p>Copyright &copy; La Piata</p>
-            </div>
-        </Layout> 
+        </div>
+
     )
 }
 

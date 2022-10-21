@@ -1,0 +1,32 @@
+.profile-img{
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+#file{
+    display: none;
+}
+
+#uploadBtn{
+    border-radius: 50%;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 18px;
+    margin-left: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: justify;
+    color: green;
+    line-height: 19px;
+    font-size: 32px;
+    cursor: pointer;
+    border: 2px solid;
+}
