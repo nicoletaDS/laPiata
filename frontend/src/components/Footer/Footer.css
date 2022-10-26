@@ -1,12 +1,21 @@
 .footer{
-    background:	#d9eee1;
-    max-width: 100%;
-    padding: 20px;
-    margin: 0 auto;
+    margin-top: auto;
+    background-color: #e7e9eb;
+    bottom: 0px;
+    display: flex;
+    justify-content:center;
+    left: 0;
+    right: 0;
+    position: absolute;
 }
 
 .footer-body{
-    max-width: 80%;
-    padding: 20px;
+    max-width: 100%;
     margin: 0 auto;
+}
+
+@media screen and (max-width:500px) {
+    .footer{
+        position:relative;
+    }
 }
