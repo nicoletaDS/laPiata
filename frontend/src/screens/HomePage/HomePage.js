@@ -18,7 +18,7 @@ function HomePage() {
   const sliderItems = Products
 
   return (
-    <Layout className='homepage-body'>
+    <div className='homepage-body'>
       <div className='carousel-wrapper'>
         <Carousel 
           infiniteLoop 
@@ -57,7 +57,7 @@ function HomePage() {
         <Link to=''>Plante</Link>
         <Link to=''>Băuturi</Link>
       </div>
-    </Layout>
+    </div>
   )
 }
 

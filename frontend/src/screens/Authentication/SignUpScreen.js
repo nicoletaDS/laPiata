@@ -75,7 +75,6 @@ function SignUpScreen() {
             formData.append('password', password);
             formData.append('re_password', re_password);
             formData.append('is_customer', is_customer);
-            console.log("MY FILE:", selectedFile)
             if(selectedFile){
                 formData.append('image_profile', selectedFile);
             }

@@ -19,6 +19,7 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
+    text-align: center;
 }
 
 .image-wrapper{
@@ -127,7 +128,7 @@
 
 .already-member{
     color: #282a35;
-
+    padding-left: 1rem;
 }
 
 .already-member:hover{
@@ -211,4 +212,93 @@
     align-items: center;
     width: 100%;
     flex-direction: column;
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+    .form-element-wrapper {
+        flex-direction: column;
+    }
+
+    .form_input {
+        text-align: center;
+    }
+
+    .radio-toolbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .radio-toolbar label{
+        margin-bottom: 0.5rem;
+    }
+
+    .authentication-button-wrapper {
+        flex-direction: column;
+    }
+
+    .already-member {
+        padding-left: 0px;
+    }
+}
+
+@media screen and (max-width:500px){
+    .title{
+        font-weight: 400;
+        font-size: 1.5rem;
+    }
+
+    .profile-img{
+        width: 80px;
+        height: 80px;
+    }
+
+
+    /*  */
+    .form-element-wrapper {
+        flex-direction: column;
+    }
+
+    .form_label{
+        text-align: center;
+    }
+
+    .form_input {
+        text-align: center;
+    }
+
+    .radio-toolbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .radio-toolbar label{
+        margin-bottom: 0.5rem;
+    }
+
+    .authentication-button-wrapper {
+        flex-direction: column;
+    }
+
+    .already-member {
+        padding-left: 0px;
+    }
+
+    .description-new-password-screen{
+        text-align: center;
+    }
+
+    .save-button{
+        width: 80px;
+        height: 32px;
+    }
+
+    .save-authentication-button{
+        width: 100px;
+        height: 48px;
+    }
+
+    .authentication-button-wrapper{
+        text-align: center;
+    }
+    
 }

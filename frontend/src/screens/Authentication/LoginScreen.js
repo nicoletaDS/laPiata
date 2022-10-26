@@ -20,7 +20,7 @@ function LoginScreen() {
 
   useEffect(()=>{
     if(userInfo && userInfo.id){
-      let path = '/acasa'; 
+      let path = '/'; 
       navigate(path);
     }
   }, [navigate, userInfo])
