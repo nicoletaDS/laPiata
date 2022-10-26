@@ -1,0 +1,22 @@
+/* @media screen and (max-height: 799px) {
+    .default-app-layout{
+        height: auto;
+    }
+    
+} */
+
+.default-app-layout{
+    background-color: #e7e9eb;
+    max-width: 100%;
+    height: 100vh !important;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-height: 750px) {
+    .default-app-layout{
+        height: auto !important;
+    }
+    
+}

@@ -1,37 +1,33 @@
-
-.app-layout{
-    position: relative;
-}
-
-.sign-up-screen-wrapper{
+.screen-wrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
-.sign-up-screen{
+.authentication-screen{
     background-color: white;
     border-radius: 20px;
     padding: 20px;
     width: 50%;
 }
 
-.register-title{
+.title{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
 }
 
-.sign-up-image-wrapper{
+.image-wrapper{
     display: flex;
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: space-around;
     justify-content: center;
-    
 }
 
 .profile-img{
@@ -46,28 +42,7 @@
     border-radius: 50%;
 }
 
-#file{
-    display: none;
-}
-
-#uploadBtn{
-    border-radius: 50%;
-    height: 20px;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 18px;
-    margin-left: 34px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: justify;
-    color: green;
-    line-height: 19px;
-    font-size: 32px;
-    cursor: pointer;
-    border: 2px solid;
-}
-
-.register-form-group{
+.form-group{
     padding: 24px 0 24px 0 ;
     display: flex;
     flex-direction: column;
@@ -89,13 +64,13 @@
     width: 60%;
 }
 
-.radio-toolbar {
+.radio-toolbar{
     width: 60%;
     margin: 0 auto;
     display: flex;
     justify-content: flex-start;
 }
-  
+
 .radio-toolbar input[type="radio"] {
     opacity: 0;
     position: fixed;
@@ -106,22 +81,23 @@
     display: inline-block;
     background-color: transparent;
     padding: 10px 10px;
-    font-family: sans-serif, Arial;
     font-size: 14px;
     border: 2px solid #e7e9eb;
     border-radius: 5px;
+    margin-right: 10px;
 }
+
 
 .radio-toolbar label:hover {
     background-color: #d9eee1;
 }
 
-.radio-toolbar input[type="radio"]:checked + label {
+.radio-toolbar input[type="radio"]:checked + label{
     background-color: #04aa6d;
     border-color: #d9eee1;
 }
-  
-.save-sign-up-button-wrapper {
+
+.authentication-button-wrapper{
     width: 60%;
     margin: 0 auto;
     margin-top: 48px;
@@ -130,7 +106,7 @@
     align-items: center;
 }
 
-.save-sign-up-button{   
+.save-authentication-button{
     width: 120px;
     height: 48px; 
     display: inline-block;
@@ -141,30 +117,98 @@
     border-radius: 5px;
 }
 
-.save-sign-up-button:hover{
+.save-authentication-button:hover{
     background-color: #d9eee1;
 }
 
-.save-sign-up-button:checked{
+.save-authentication-button:checked{
     background-color: #04aa6d;
 }
 
 .already-member{
     color: #282a35;
-    padding-left: 30px;
+
 }
 
 .already-member:hover{
     color: #04aa6d;
+
 }
 
-.copyright-register-page{
-    position: absolute;
-    margin-top: auto;
-    background-color: #e7e9eb;
-    bottom: 0px;
+.save-login-button-wrapper{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 48px;
     display: flex;
-    justify-content:center;
-    left: 0;
-    right: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-member-button{
+    color: #282a35;
+    padding-top: 16px;
+    display:flex;
+    flex-direction: column;
+}
+
+.new-member-button:hover{
+    color: #04aa6d;
+}
+
+.reset-password-button{
+    color: #282a35;
+    padding-top: 8px;
+    display:flex;
+    flex-direction: column;
+}
+
+.reset-password-button:hover{
+    color: #04aa6d;
+}
+
+.description-page{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content:space-around; 
+}
+
+.description-body{
+    display: flex;
+    align-items:center;
+    width: 60%;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.save-button{
+    margin: 0 auto;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 48px;
+    background-color: transparent;
+    padding: 10px 10px;
+    font-size: 14px;
+    border: 2px solid #e7e9eb;
+    border-radius: 5px;
+}
+
+.save-button:hover{
+    background-color: #d9eee1;
+}
+
+.save-button:checked{
+    background-color: #04aa6d;
+}
+
+.description-new-password-screen{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
 }
